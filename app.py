@@ -504,8 +504,231 @@ def page_vocab(student):
                 st.button("✅ بلد بودم", on_click=flash_mark, args=(True,), key=f"fk_{f['pos']}")
                 st.button("🔁 باید مرور کنم", on_click=flash_mark, args=(False,), key=f"fr_{f['pos']}")
 
+
 def page_quiz(student):
     qz = st.session_state.get("quiz")
     if not qz:
         st.subheader("کویز جدید")
-    st.radio("نوع کویز", list(MODE_LABELS), format_func=MODE_LABELS.get, key="quiz_mode", horizontal=True, index=2)
+        st.radio("نوع کویز", list(MODE_LABELS), format_func=MODE_LABELS.get,
+                 key="quiz_mode", horizontal=True, index=2)
+        st.radio("تعداد سوال", [5, 10], key="quiz_n", horizontal=True, index=1)
+        st.button("🚀 شروع کویز", on_click=start_quiz_cb, key="quiz_start")
+        return
+    if qz["finished"]:
+        show_quiz_result(qz)
+        return
+
+    total, pos = len(qz["questions"]), qz["pos"]
+    q = qz["questions"][pos]
+    st.progress((pos + (1 if qz["answered"] else 0)) / total)
+    st.caption(f"سوال {pos + 1} از {total} • نمره تا حالا: {qz['score']}")
+    st.markdown(f'<div class="card q {q["qdir"]}">{esc(q["q"])}</div>', unsafe_allow_html=True)
+
+    if not qz["answered"]:
+        for i, opt in enumerate(q["options"]):
+            st.button(opt, on_click=answer_quiz, args=(i,), key=f"o_{qz['id']}_{pos}_{i}")
+    else:
+        for i, opt in enumerate(q["options"]):
+            cls = "opt " + q["odir"]
+            mark = ""
+            if i == q["answer"]:
+                cls += " right"
+                mark = "✔ "
+            elif i == qz["picked"]:
+                cls += " wrong"
+                mark = "✘ "
+            st.markdown(f'<div class="{cls}">{mark}{esc(opt)}</div>', unsafe_allow_html=True)
+        if qz["picked"] == q["answer"]:
+            st.success("✅ درست!")
+        else:
+            st.error("❌ غلط. جواب درست با رنگ سبز نشان داده شد.")
+        st.info(q["explain"])
+        last = pos + 1 >= total
+        st.button("🏁 دیدن نتیجه" if last else "➡️ سوال بعدی", on_click=next_quiz,
+                  key=f"n_{qz['id']}_{pos}")
+    st.button("خروج از کویز", on_click=reset_quiz, key=f"x_{qz['id']}_{pos}")
+
+
+def show_quiz_result(qz):
+    total, score = len(qz["questions"]), qz["score"]
+    pct = score * 100 // total
+    st.markdown(f'<p class="score">{score} / {total}</p>', unsafe_allow_html=True)
+    st.progress(score / total)
+    if pct >= 90:
+        st.success(f"{pct}٪ — آفرین! عالی بود 🌟")
+    elif pct >= 70:
+        st.success(f"{pct}٪ — خیلی خوب!")
+    elif pct >= 50:
+        st.warning(f"{pct}٪ — قابل قبول، کمی تمرین بیشتر.")
+    else:
+        st.error(f"{pct}٪ — نگران نباش، لغات را مرور کو و دوباره امتحان بده.")
+    right = [x for x in qz["log"] if x["ok"]]
+    wrong = [x for x in qz["log"] if not x["ok"]]
+    st.markdown(f"#### ✅ جواب‌های درست ({len(right)})")
+    if not right:
+        st.write("—")
+    for x in right:
+        st.markdown(f'<div class="card ok"><div class="{x["qdir"]}">{esc(x["q"])}</div>'
+                    f'<b>✔ {esc(x["correct"])}</b></div>', unsafe_allow_html=True)
+    st.markdown(f"#### ❌ جواب‌های غلط ({len(wrong)})")
+    if not wrong:
+        st.write("هیچ غلطی نداشتی 👏")
+    for x in wrong:
+        st.markdown(
+            f'<div class="card bad"><div class="{x["qdir"]}">{esc(x["q"])}</div>'
+            f'جواب تو: <b>{esc(x["picked"])}</b><br>'
+            f'جواب درست: <b>{esc(x["correct"])}</b><br>{esc(x["explain"])}</div>',
+            unsafe_allow_html=True,
+        )
+    st.button("🔄 کویز جدید", on_click=reset_quiz, key="quiz_again")
+    st.caption("نتیجه و اشتباهات در بخش 📊 پیشرفت ذخیره شد.")
+
+
+def show_ai_setup():
+    st.info(
+        "معلم AI برای کار کردن به کلید Gemini نیاز دارد. بدون آن، لغات، کویز و پیشرفت "
+        "کار میکنند.\n\n"
+        "۱) از aistudio.google.com/apikey کلید رایگان بگیر.\n\n"
+        "۲) در Streamlit: Manage app ← Settings ← Secrets و بنویس: "
+        "`GEMINI_API_KEY = \"کلید-تو\"`"
+    )
+
+
+def page_ai(student, level):
+    st.subheader("👩‍🏫 معلم هوش مصنوعی")
+    if not ai_available():
+        show_ai_setup()
+        return
+    tool = st.selectbox("ابزار", ["✍️ تصحیح جمله", "📖 درس کوتاه", "🎯 تمرین از اشتباهاتم",
+                                  "💬 پرسش آزاد"])
+    system = teacher_prompt(level)
+
+    if tool.startswith("✍️"):
+        sentence = st.text_area("جملهٔ انگلیسی‌ات را بنویس", key="ai_sentence")
+        if st.button("✍️ تصحیح کو", disabled=not sentence.strip(), key="ai_fix"):
+            prompt = (
+                f"Student sentence: {sentence}\n"
+                "Reply in Markdown with: 1) **Corrected sentence** 2) **Why (simple English)** "
+                "3) **چرا (دری ساده)** 4) two new example sentences with Dari translation. "
+                "If the sentence is already correct, say so."
+            )
+            with st.spinner("معلم بررسی میکند..."):
+                text, err = ask_ai([{"role": "user", "text": prompt}], system)
+            st.session_state["ai_fix_out"] = text or friendly_error(err)
+        if st.session_state.get("ai_fix_out"):
+            st.markdown(st.session_state["ai_fix_out"])
+
+    elif tool.startswith("📖"):
+        topic = st.text_input("موضوع درس", value="Present simple", key="ai_topic")
+        if st.button("📖 درس بده", disabled=not topic.strip(), key="ai_lesson"):
+            prompt = (f"Give a short lesson about: {topic}. Include the key rule, five examples "
+                      "with Dari translation, and one common mistake of Dari speakers. No exercises.")
+            with st.spinner("معلم درس را آماده میکند..."):
+                text, err = ask_ai([{"role": "user", "text": prompt}], system)
+            st.session_state["ai_lesson_out"] = text or friendly_error(err)
+        if st.session_state.get("ai_lesson_out"):
+            st.markdown(st.session_state["ai_lesson_out"])
+
+    elif tool.startswith("🎯"):
+        rows = q_all(
+            "SELECT question, wrong_answer, correct_answer FROM wrong_answers "
+            "WHERE student=? ORDER BY id DESC LIMIT 10", (student,))
+        if not rows:
+            st.info("هنوز اشتباهی ذخیره نشده. اول یک کویز بده.")
+        elif st.button("🎯 تمرین بساز", key="ai_practice"):
+            lines = "\n".join(f"- {a} | my answer: {b} | correct: {c}" for a, b, c in rows)
+            prompt = (
+                "These are my recent mistakes:\n" + lines +
+                "\nWrite 5 NEW multiple-choice practice questions (options A-D) that target "
+                "the same weaknesses. Write the questions first. Then write a line containing "
+                "exactly ---ANSWERS--- and after it the answers with a short Dari explanation."
+            )
+            with st.spinner("معلم تمرین میسازد..."):
+                text, err = ask_ai([{"role": "user", "text": prompt}], system)
+            st.session_state["ai_practice_out"] = text or ("ERR:" + friendly_error(err))
+        out = st.session_state.get("ai_practice_out")
+        if out:
+            if out.startswith("ERR:"):
+                st.error(out[4:])
+            else:
+                questions, answers = split_practice(out)
+                st.markdown(questions)
+                if answers:
+                    with st.expander("✅ جواب‌ها و توضیح"):
+                        st.markdown(answers)
+
+    else:
+        chat = st.session_state.setdefault("ai_chat", [])
+        for m in chat:
+            with st.chat_message("user" if m["role"] == "user" else "assistant"):
+                st.markdown(m["text"])
+        msg = st.chat_input("سوالت را بنویس...")
+        if msg:
+            chat.append({"role": "user", "text": msg})
+            text, err = ask_ai(chat, system)
+            chat.append({"role": "model", "text": text or friendly_error(err)})
+            st.rerun()
+
+
+def page_progress(student):
+    stats = get_stats(student)
+    c1, c2 = st.columns(2)
+    c1.metric("کویزها", stats["quizzes"])
+    c2.metric("اوسط نمره", "—" if stats["avg"] is None else f"{stats['avg']:.0f}٪")
+    c3, c4 = st.columns(2)
+    c3.metric("بهترین نمره", "—" if stats["best"] is None else f"{stats['best']:.0f}٪")
+    c4.metric("اشتباهات ذخیره‌شده", stats["mistakes"])
+    st.caption(f"لغات «بلد بودم»: {stats['known']} • لغات «باید مرور کنم»: {stats['review']}")
+
+    t_scores, t_mistakes = st.tabs(["📈 نمره‌ها", "❌ اشتباهات من"])
+    with t_scores:
+        rows = q_all("SELECT topic, score, total, created FROM exam_results "
+                     "WHERE student=? ORDER BY id", (student,))
+        if not rows:
+            st.info("هنوز کویزی ندادی.")
+        else:
+            if len(rows) >= 2:
+                st.line_chart([r[1] * 100 / r[2] for r in rows])
+                st.caption("نمرهٔ هر کویز (٪)")
+            st.dataframe([
+                {"نوع": r[0], "نمره": f"{r[1]}/{r[2]}", "درصد": f"{r[1] * 100 // r[2]}٪",
+                 "زمان (UTC)": r[3]} for r in reversed(rows[-20:])
+            ])
+    with t_mistakes:
+        rows = q_all("SELECT question, wrong_answer, correct_answer, created FROM wrong_answers "
+                     "WHERE student=? ORDER BY id DESC LIMIT 50", (student,))
+        if not rows:
+            st.success("اشتباهی ذخیره نشده 👏")
+        else:
+            st.dataframe([{"سوال": a, "جواب تو": b, "جواب درست": c, "زمان (UTC)": d}
+                          for a, b, c, d in rows])
+    st.caption("توجه: روی Streamlit Community Cloud فایل دیتابیس ممکن است بعد از ری‌استارت پاک شود.")
+
+
+def main():
+    st.set_page_config(page_title="EnglishMate", page_icon="📘", layout="centered")
+    st.markdown(CSS, unsafe_allow_html=True)
+    st.session_state.setdefault("nav", PAGES[0])
+
+    st.markdown('<div class="hero"><h1>📘 EnglishMate</h1>'
+                "<p>انگلیسی را قدم‌به‌قدم یاد بگیر</p></div>", unsafe_allow_html=True)
+    c1, c2 = st.columns(2)
+    c1.text_input("👤 نام شاگرد", value="مهمان", key="student_input")
+    level = c2.selectbox("📶 سطح", ["مبتدی", "متوسط", "پیشرفته"], key="level")
+    st.radio("بخش", PAGES, horizontal=True, key="nav", label_visibility="collapsed")
+
+    student, page = current_student(), st.session_state["nav"]
+    if page == PAGE_HOME:
+        page_home(student)
+    elif page == PAGE_VOCAB:
+        page_vocab(student)
+    elif page == PAGE_QUIZ:
+        page_quiz(student)
+    elif page == PAGE_AI:
+        page_ai(student, level)
+    else:
+        page_progress(student)
+
+
+if __name__ == "__main__":
+    main()
