@@ -504,10 +504,8 @@ def page_vocab(student):
                 st.button("✅ بلد بودم", on_click=flash_mark, args=(True,), key=f"fk_{f['pos']}")
                 st.button("🔁 باید مرور کنم", on_click=flash_mark, args=(False,), key=f"fr_{f['pos']}")
 
-
 def page_quiz(student):
     qz = st.session_state.get("quiz")
     if not qz:
         st.subheader("کویز جدید")
-        st.radio("نوع کویز", list(MODE_LABELS), format_func=MODE_LABELS.get,
-                 key="quiz_mode", horizontal=True, inde
+    st.radio("نوع کویز", list(MODE_LABELS), format_func=MODE_LABELS.get, key="quiz_mode", horizontal=True, index=2)
