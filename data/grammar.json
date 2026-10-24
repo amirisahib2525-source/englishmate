@@ -1,0 +1,169 @@
+{"lessons": [
+{"id":"present-simple","en":"Present Simple","fa":"زمان حال ساده",
+ "explain":"این زمان برای کارهایی است که هر روز یا همیشه اتفاق میافتند، مثل عادت‌ها، کارهای تکراری و حقیقت‌های عمومی.",
+ "formula":{"affirmative":"Subject + verb (با he / she / it: verb + s)","negative":"Subject + do not (don't) / does not (doesn't) + verb","question":"Do / Does + subject + verb ?"},
+ "examples":{
+  "affirmative":[["I drink tea every morning.","من هر صبح چای مینوشم."],["She works in a hospital.","او در یک شفاخانه کار میکند."],["The sun rises in the east.","آفتاب از شرق طلوع میکند."]],
+  "negative":[["I do not eat meat.","من گوشت نمیخورم."],["He does not live in Kabul.","او در کابل زندگی نمیکند."]],
+  "question":[["Do you speak English?","آیا تو انگلیسی صحبت میکنی؟"],["Does she study at night?","آیا او شب‌ها درس میخواند؟"]]},
+ "time":["every day","usually","always","often","sometimes","never","on Mondays"],
+ "when":["برای عادت‌ها و کارهای تکراری.","برای حقیقت‌ها و واقعیت‌های همیشگی.","برای برنامه‌های ثابت، مثل ساعت حرکت بس."],
+ "mistakes":[["She go to school.","She goes to school.","با she / he / it به آخر فعل s یا es اضافه کن."],["He doesn't likes tea.","He doesn't like tea.","بعد از does / doesn't فعل ساده میآید، بدون s."],["Do she work here?","Does she work here?","با she / he / it از Does استفاده کن."]],
+ "exercises":[
+  {"q":"My brother ___ (play) football on Fridays.","a":"plays","hint":"با he / she / it فعل s میگیرد."},
+  {"q":"They ___ (not / like) cold weather.","a":"do not like|don't like","hint":"منفی با do not."},
+  {"q":"___ you like tea? (Do / Does)","a":"Do","hint":"با you از Do استفاده میشود."},
+  {"q":"The shop ___ (open) at eight.","a":"opens","hint":"فاعل مفرد است، پس s میگیرد."}],
+ "mcq":[
+  {"q":"My father ___ to work by bus.","options":["go","goes","going","is go"],"answer":"goes","explain":"father مثل he است، پس به فعل s اضافه میشود."},
+  {"q":"She ___ like spicy food.","options":["don't","doesn't","isn't","not"],"answer":"doesn't","explain":"منفی با she از doesn't ساخته میشود."},
+  {"q":"___ they live in Herat?","options":["Do","Does","Are","Is"],"answer":"Do","explain":"با they از Do استفاده میشود."},
+  {"q":"Which word is often used with Present Simple?","options":["now","yesterday","usually","at the moment"],"answer":"usually","explain":"usually نشان میدهد کار تکراری است."}]},
+
+{"id":"present-continuous","en":"Present Continuous","fa":"زمان حال استمراری",
+ "explain":"این زمان برای کاری است که همین حالا جریان دارد، یا در این روزها در حال انجام است، یا برنامهٔ نزدیک آینده است.",
+ "formula":{"affirmative":"Subject + am / is / are + verb-ing","negative":"Subject + am / is / are + not + verb-ing","question":"Am / Is / Are + subject + verb-ing ?"},
+ "examples":{
+  "affirmative":[["I am reading a book now.","من همین حالا کتاب میخوانم."],["They are playing in the garden.","آنها در باغ بازی میکنند."],["She is studying for her exam this week.","او این هفته برای امتحانش درس میخواند."]],
+  "negative":[["He is not sleeping.","او خواب نیست."],["We are not watching TV.","ما تلویزیون تماشا نمیکنیم."]],
+  "question":[["Are you listening?","آیا گوش میکنی؟"],["What is she doing?","او چه کار میکند؟"]]},
+ "time":["now","right now","at the moment","today","this week","currently","Look!","Listen!"],
+ "when":["برای کاری که همین لحظه جریان دارد.","برای کار موقتی که در این روزها انجام میشود.","برای برنامهٔ مشخص آیندهٔ نزدیک."],
+ "mistakes":[["I am go to school now.","I am going to school now.","بعد از am / is / are فعل با ing میآید."],["She is work now.","She is working now.","فعل اصلی باید ing بگیرد."],["I am knowing the answer.","I know the answer.","فعل‌های حالتی مثل know, like, want معمولاً ing نمیگیرند."]],
+ "exercises":[
+  {"q":"Look! It ___ (rain).","a":"is raining","hint":"is + فعل با ing."},
+  {"q":"They ___ (not / work) today.","a":"are not working|aren't working","hint":"منفی: are not + ing."},
+  {"q":"___ you studying English now? (Am / Is / Are)","a":"Are","hint":"با you از Are استفاده میشود."},
+  {"q":"I ___ (cook) dinner at the moment.","a":"am cooking","hint":"با I از am استفاده میشود."}],
+ "mcq":[
+  {"q":"Listen! The baby ___.","options":["cries","is crying","cried","has cried"],"answer":"is crying","explain":"Listen! یعنی همین حالا؛ پس Present Continuous."},
+  {"q":"We ___ TV right now.","options":["aren't watching","don't watching","not watching","doesn't watch"],"answer":"aren't watching","explain":"منفی: are not + ing."},
+  {"q":"Which sentence is correct?","options":["She is wanting tea.","She wants tea.","She want tea.","She is want tea."],"answer":"She wants tea.","explain":"want فعل حالتی است و ing نمیگیرد."},
+  {"q":"___ he working today?","options":["Is","Does","Are","Do"],"answer":"Is","explain":"با he از Is استفاده میشود."}]},
+
+{"id":"present-perfect","en":"Present Perfect","fa":"زمان حال کامل",
+ "explain":"این زمان برای کاری است که در گذشته شروع شده و نتیجه یا اثرش حالا مهم است. همچنین برای تجربه‌های زندگی، بدون گفتن زمان دقیق.",
+ "formula":{"affirmative":"Subject + have / has + past participle (V3)","negative":"Subject + have / has + not + V3","question":"Have / Has + subject + V3 ?"},
+ "examples":{
+  "affirmative":[["I have finished my homework.","من کار خانگی‌ام را تمام کرده‌ام."],["She has visited Mazar-e-Sharif.","او مزار شریف را دیده است."],["We have lived here for five years.","ما پنج سال است که اینجا زندگی میکنیم."]],
+  "negative":[["I have not seen that film.","من آن فلم را ندیده‌ام."],["He has not called me yet.","او هنوز به من زنگ نزده است."]],
+  "question":[["Have you ever eaten sushi?","آیا تا حال سوشی خورده‌ای؟"],["Has she arrived?","آیا او رسیده است؟"]]},
+ "time":["ever","never","already","yet","just","recently","so far","for","since"],
+ "when":["برای تجربه‌های زندگی (Have you ever...?).","برای کاری که تازه تمام شده و اثرش حالا دیده میشود.","برای کاری که از گذشته شروع شده و تا حالا ادامه دارد (با for / since)."],
+ "mistakes":[["I have seen him yesterday.","I saw him yesterday.","با yesterday و زمان مشخص گذشته از Past Simple استفاده کن."],["She has went home.","She has gone home.","بعد از have / has شکل سوم فعل (V3) میآید."],["I have lived here since five years.","I have lived here for five years.","برای مدت for و برای نقطهٔ شروع since."]],
+ "exercises":[
+  {"q":"I ___ (finish) my work already.","a":"have finished","hint":"have + V3."},
+  {"q":"She ___ (never / be) to London.","a":"has never been","hint":"با she از has استفاده کن؛ V3 of be = been."},
+  {"q":"___ you ever visited Herat? (Have / Has)","a":"Have","hint":"با you از Have استفاده میشود."},
+  {"q":"They have lived here ___ 2020. (for / since)","a":"since","hint":"2020 نقطهٔ شروع است."}],
+ "mcq":[
+  {"q":"He ___ his keys. He can't enter the house.","options":["lost","has lost","is losing","loses"],"answer":"has lost","explain":"نتیجه حالا مهم است؛ Present Perfect."},
+  {"q":"I haven't finished ___.","options":["yet","yesterday","ago","last week"],"answer":"yet","explain":"yet با Present Perfect منفی و سوالی استفاده میشود."},
+  {"q":"We have known each other ___ ten years.","options":["since","for","from","ago"],"answer":"for","explain":"ten years یک مدت است؛ پس for."},
+  {"q":"Which is the V3 of 'write'?","options":["wrote","written","writed","writing"],"answer":"written","explain":"write → wrote → written."}]},
+
+{"id":"present-perfect-continuous","en":"Present Perfect Continuous","fa":"زمان حال کامل استمراری",
+ "explain":"این زمان برای کاری است که از گذشته شروع شده و تا حالا ادامه دارد (یا تازه تمام شده) و روی مدت زمان آن تأکید داریم.",
+ "formula":{"affirmative":"Subject + have / has + been + verb-ing","negative":"Subject + have / has + not + been + verb-ing","question":"Have / Has + subject + been + verb-ing ?"},
+ "examples":{
+  "affirmative":[["I have been studying for two hours.","من دو ساعت است که درس میخوانم."],["She has been working here since 2022.","او از سال ۲۰۲۲ تا حال اینجا کار میکند."],["They have been waiting for the bus.","آنها مدتی است که منتظر بس هستند."]],
+  "negative":[["I have not been sleeping well.","من این مدت خوب نخوابیده‌ام."],["He has not been feeling well lately.","او اخیراً احساس خوبی نداشته است."]],
+  "question":[["How long have you been learning English?","چه مدت است که انگلیسی یاد میگیری؟"],["Has it been raining?","آیا باران میبارید؟"]]},
+ "time":["for","since","how long","all day","lately","recently"],
+ "when":["وقتی روی مدت یک کار که هنوز ادامه دارد تأکید میکنیم.","برای کاری که تازه تمام شده و اثرش دیده میشود، مثلاً: دست‌هایت چرکین است؛ کار کرده‌ام."],
+ "mistakes":[["I have been study for two hours.","I have been studying for two hours.","بعد از been فعل ing میگیرد."],["She has been knowing him for years.","She has known him for years.","فعل‌های حالتی مثل know ing نمیگیرند."],["I have been working since three hours.","I have been working for three hours.","برای مدت for و برای شروع since."]],
+ "exercises":[
+  {"q":"I ___ (learn) English for a year.","a":"have been learning","hint":"have been + ing."},
+  {"q":"She ___ (not / sleep) well lately.","a":"has not been sleeping|hasn't been sleeping","hint":"منفی با has not been."},
+  {"q":"How long ___ you been waiting? (have / has)","a":"have","hint":"با you از have استفاده میشود."},
+  {"q":"He has been working here ___ 2021. (for / since)","a":"since","hint":"2021 نقطهٔ شروع است."}],
+ "mcq":[
+  {"q":"They ___ for two hours.","options":["have been playing","has been playing","are playing","played"],"answer":"have been playing","explain":"با they از have been + ing استفاده میشود."},
+  {"q":"How long ___ she been living here?","options":["have","has","is","does"],"answer":"has","explain":"با she از has استفاده میشود."},
+  {"q":"We have been waiting ___ eight o'clock.","options":["for","since","in","during"],"answer":"since","explain":"eight o'clock نقطهٔ شروع است."},
+  {"q":"Which sentence emphasizes the duration?","options":["I have finished my homework.","I have been doing my homework for two hours.","I did my homework.","I do my homework."],"answer":"I have been doing my homework for two hours.","explain":"for two hours مدت کار را نشان میدهد."}]},
+
+{"id":"past-simple","en":"Past Simple","fa":"زمان گذشتهٔ ساده",
+ "explain":"این زمان برای کاری است که در گذشته تمام شده و زمانش مشخص است.",
+ "formula":{"affirmative":"Subject + verb-ed (یا شکل دوم فعل بی‌قاعده، V2)","negative":"Subject + did not (didn't) + verb","question":"Did + subject + verb ?"},
+ "examples":{
+  "affirmative":[["I visited my friend yesterday.","من دیروز دوستم را دیدار کردم."],["She went to the market.","او به بازار رفت."],["We watched a film last night.","ما دیشب یک فلم تماشا کردیم."]],
+  "negative":[["I did not go to school.","من به مکتب نرفتم."],["They did not call me.","آنها به من زنگ نزدند."]],
+  "question":[["Did you finish your work?","آیا کارت را تمام کردی؟"],["Where did he live?","او کجا زندگی میکرد؟"]]},
+ "time":["yesterday","last week","last year","two days ago","in 2020","when I was a child"],
+ "when":["برای کاری که در گذشته شروع و تمام شده است.","برای چند کار که پشت سر هم در گذشته اتفاق افتادند.","برای عادت‌های گذشته که حالا وجود ندارند."],
+ "mistakes":[["I didn't went there.","I didn't go there.","بعد از did / didn't فعل ساده میآید."],["She buyed a bag.","She bought a bag.","buy فعل بی‌قاعده است: buy → bought."],["Did he came?","Did he come?","در سوال، بعد از Did فعل ساده است."]],
+ "exercises":[
+  {"q":"We ___ (visit) Kabul last year.","a":"visited","hint":"فعل با قاعده + ed."},
+  {"q":"He ___ (not / eat) breakfast.","a":"did not eat|didn't eat","hint":"منفی: did not + فعل ساده."},
+  {"q":"___ you see the film? (Do / Did)","a":"Did","hint":"گذشته است، پس Did."},
+  {"q":"I ___ (go) to bed late last night.","a":"went","hint":"go → went."}],
+ "mcq":[
+  {"q":"She ___ to Mazar in 2019.","options":["goes","went","gone","going"],"answer":"went","explain":"2019 زمان مشخص گذشته است؛ go → went."},
+  {"q":"They ___ not come to the party.","options":["do","does","did","were"],"answer":"did","explain":"منفی گذشته با did not."},
+  {"q":"What is the past of 'take'?","options":["took","taked","taken","takes"],"answer":"took","explain":"take → took → taken."},
+  {"q":"Did you ___ the letter?","options":["wrote","write","written","writes"],"answer":"write","explain":"بعد از Did فعل ساده میآید."}]},
+
+{"id":"past-continuous","en":"Past Continuous","fa":"زمان گذشتهٔ استمراری",
+ "explain":"این زمان برای کاری است که در یک لحظهٔ مشخص گذشته در حال انجام بود، یا وقتی کار دیگری آن را قطع کرد.",
+ "formula":{"affirmative":"Subject + was / were + verb-ing","negative":"Subject + was / were + not + verb-ing","question":"Was / Were + subject + verb-ing ?"},
+ "examples":{
+  "affirmative":[["I was sleeping at ten o'clock.","ساعت ده من خواب بودم."],["They were playing football in the park.","آنها در پارک فوتبال بازی میکردند."],["She was cooking when I called.","وقتی زنگ زدم او آشپزی میکرد."]],
+  "negative":[["He was not listening.","او گوش نمیکرد."],["We were not working.","ما کار نمیکردیم."]],
+  "question":[["Were you studying at eight?","آیا ساعت هشت درس میخواندی؟"],["What was he doing?","او چه کار میکرد؟"]]},
+ "time":["while","when","at 8 o'clock yesterday","all day yesterday","at that time"],
+ "when":["برای کاری که در لحظهٔ مشخص گذشته جریان داشت.","برای کاری که با کار دیگر قطع شد (با when).","برای دو کار همزمان در گذشته (با while)."],
+ "mistakes":[["I was go to school.","I was going to school.","بعد از was / were فعل ing میگیرد."],["They was playing.","They were playing.","با they / we / you از were استفاده کن."],["I was watching TV when he was arriving.","I was watching TV when he arrived.","کار کوتاهی که کار طولانی را قطع میکند، Past Simple میشود."]],
+ "exercises":[
+  {"q":"At nine last night, I ___ (read) a book.","a":"was reading","hint":"was + ing."},
+  {"q":"They ___ (not / sleep) at midnight.","a":"were not sleeping|weren't sleeping","hint":"با they از were."},
+  {"q":"___ she cooking when you arrived? (Was / Were)","a":"Was","hint":"با she از Was."},
+  {"q":"While we ___ (walk), it started to rain.","a":"were walking","hint":"با we از were."}],
+ "mcq":[
+  {"q":"I ___ TV when the phone rang.","options":["watched","was watching","watch","am watching"],"answer":"was watching","explain":"کار طولانی که قطع شد."},
+  {"q":"They ___ playing at that time.","options":["was","were","are","do"],"answer":"were","explain":"با they از were."},
+  {"q":"While he ___, I was cooking.","options":["read","was reading","reads","has read"],"answer":"was reading","explain":"دو کار همزمان در گذشته."},
+  {"q":"Which time word fits Past Continuous?","options":["while","tomorrow","yet","ever"],"answer":"while","explain":"while برای کار جریان‌دار در گذشته."}]},
+
+{"id":"past-perfect","en":"Past Perfect","fa":"زمان گذشتهٔ کامل (ماضی بعید)",
+ "explain":"این زمان برای کاری است که قبل از کار یا زمان دیگری در گذشته تمام شده بود؛ یعنی «گذشته در گذشته».",
+ "formula":{"affirmative":"Subject + had + past participle (V3)","negative":"Subject + had not (hadn't) + V3","question":"Had + subject + V3 ?"},
+ "examples":{
+  "affirmative":[["I had finished my work before he came.","من قبل از آمدن او کارم را تمام کرده بودم."],["She had already left when we arrived.","وقتی رسیدیم او قبلاً رفته بود."],["They had eaten before the guests came.","آنها قبل از آمدن مهمانان غذا خورده بودند."]],
+  "negative":[["I had not seen him before.","من او را قبلاً ندیده بودم."],["We had not decided yet.","ما هنوز تصمیم نگرفته بودیم."]],
+  "question":[["Had you studied before the test?","آیا قبل از امتحان درس خوانده بودی؟"],["Had she gone?","آیا او رفته بود؟"]]},
+ "time":["before","after","already","by the time","when","until","just"],
+ "when":["برای کاری که قبل از کار دیگری در گذشته تمام شده بود.","برای توضیح دادن دلیل یک اتفاق گذشته.","همراه Past Simple برای نشان دادن ترتیب کارها."],
+ "mistakes":[["When I arrived, he has left.","When I arrived, he had left.","برای کار قبل‌تر در گذشته had + V3 بگذار."],["She had went home.","She had gone home.","بعد از had شکل سوم فعل میآید."],["I had finish my work.","I had finished my work.","بعد از had باید V3 باشد."]],
+ "exercises":[
+  {"q":"When I arrived, the film ___ (already / start).","a":"had already started","hint":"had + already + V3."},
+  {"q":"She ___ (not / eat) before the party.","a":"had not eaten|hadn't eaten","hint":"منفی: had not + V3."},
+  {"q":"___ they left before you came? (Had / Have)","a":"Had","hint":"گذشتهٔ کامل با Had."},
+  {"q":"By the time we got there, he ___ (go).","a":"had gone","hint":"go → gone."}],
+ "mcq":[
+  {"q":"By the time I got to the station, the bus ___.","options":["left","had left","leaves","is leaving"],"answer":"had left","explain":"By the time نشان میدهد کار قبلی‌تر تمام شده بود."},
+  {"q":"Past Perfect is made with ___ + V3.","options":["has","had","did","was"],"answer":"had","explain":"فرمول: had + V3."},
+  {"q":"Which time word is common with Past Perfect?","options":["by the time","tomorrow","now","every day"],"answer":"by the time","explain":"by the time با گذشتهٔ کامل میآید."},
+  {"q":"They ___ already eaten when I arrived.","options":["have","had","did","were"],"answer":"had","explain":"خوردن قبل از رسیدن من تمام شده بود."}]},
+
+{"id":"past-perfect-continuous","en":"Past Perfect Continuous","fa":"زمان گذشتهٔ کامل استمراری",
+ "explain":"این زمان برای کاری است که قبل از یک زمان یا کار دیگر در گذشته شروع شده بود و مدتی ادامه داشت. روی مدت زمان تأکید میکند.",
+ "formula":{"affirmative":"Subject + had been + verb-ing","negative":"Subject + had not (hadn't) been + verb-ing","question":"Had + subject + been + verb-ing ?"},
+ "examples":{
+  "affirmative":[["I had been waiting for an hour when he arrived.","وقتی او رسید، من یک ساعت بود که منتظر بودم."],["She had been studying all night before the exam.","او قبل از امتحان تمام شب درس خوانده بود."],["They had been working since morning.","آنها از صبح مشغول کار بودند."]],
+  "negative":[["I had not been sleeping well.","من خوب نخوابیده بودم."],["He had not been feeling well.","او احساس خوبی نداشت."]],
+  "question":[["Had you been waiting long?","آیا مدت زیادی منتظر بودی؟"],["How long had she been working there?","او چه مدت آنجا کار کرده بود؟"]]},
+ "time":["for","since","how long","before","when","by the time","all day"],
+ "when":["برای مدت یک کار که قبل از لحظهٔ دیگری در گذشته ادامه داشت.","برای دلیل یک وضعیت در گذشته، مثلاً: او خسته بود چون مدتی میدوید."],
+ "mistakes":[["I had been wait for two hours.","I had been waiting for two hours.","بعد از been فعل ing میگیرد."],["She had been knowing him.","She had known him.","فعل‌های حالتی ing نمیگیرند."],["He had been working since three hours.","He had been working for three hours.","برای مدت for و برای شروع since."]],
+ "exercises":[
+  {"q":"She was tired because she ___ (run) for an hour.","a":"had been running","hint":"had been + ing."},
+  {"q":"We ___ (not / wait) long when the bus came.","a":"had not been waiting|hadn't been waiting","hint":"منفی: had not been + ing."},
+  {"q":"How long ___ they been living there? (had / have)","a":"had","hint":"گذشتهٔ کامل استمراری با had."},
+  {"q":"He had been working ___ morning. (for / since)","a":"since","hint":"morning نقطهٔ شروع است."}],
+ "mcq":[
+  {"q":"When he called, I ___ for two hours.","options":["had been studying","have been studying","was study","studied"],"answer":"had been studying","explain":"مدت قبل از تماس در گذشته."},
+  {"q":"How long ___ you been waiting before the bus came?","options":["have","had","did","were"],"answer":"had","explain":"فرمول: had been + ing."},
+  {"q":"Her eyes were red because she ___.","options":["had been crying","has been crying","cries","is crying"],"answer":"had been crying","explain":"گریه کردن دلیل وضعیت گذشته بود."},
+  {"q":"Which tense emphasizes a duration before a past moment?","options":["Past Simple","Past Perfect Continuous","Present Simple","Future Simple"],"answer":"Past Perfect Continuous","explain":"had been + ing مدت را قبل از لحظهٔ گذشته نشان میدهد."}]}
+]}
