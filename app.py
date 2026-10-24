@@ -731,4 +731,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+ main()
+    [theme]
+base = "dark"
+primaryColor = "#4da3ff"
+backgroundColor = "#0a1a3f"
+secondaryBackgroundColor = "#12285c"
+textColor = "#f4f8ff"
