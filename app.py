@@ -729,9 +729,8 @@ def main():
     else:
         page_progress(student)
 
-
 if __name__ == "__main__":
- main()
+ main() 
     [theme]
 base = "dark"
 primaryColor = "#4da3ff"
