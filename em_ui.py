@@ -5,7 +5,10 @@ from em_ai import (
     ai_available, ask_ai, friendly_error, split_practice, teacher_prompt,
 )
 from em_content import LEVELS, load_grammar, load_vocab, words_for
-from em_db import current_level, current_student, get_stats, q_all, word_status_map
+from em_db import (
+    current_level, current_student, display_name, get_stats, q_all,
+    word_status_map,
+)
 from em_grammar_page import page_grammar
 from em_hero import show_hero
 from em_quiz_page import page_quiz
@@ -99,7 +102,7 @@ def recommendation(stats, learned, total, level):
 def page_home(student, level):
     stats = get_stats(student)
     learned, total = level_progress(student, level)
-    st.markdown(f"### سلام {esc(student)} 👋")
+    st.markdown(f"### سلام {esc(display_name())} 👋")
     st.write(f"سطح فعلی تو: **{LEVELS[level]}**")
     c1, c2, c3 = st.columns(3)
     c1.metric("لغات یاد گرفته", stats["learned"])
