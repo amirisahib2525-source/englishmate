@@ -62,6 +62,12 @@ def current_student():
     return name or "مهمان"
 
 
+def display_name():
+    """Name shown in the greeting. Friendly text when no name is typed."""
+    name = (st.session_state.get("student_input") or "").strip()
+    return name or "دوست خوبم"
+
+
 def current_level():
     return st.session_state.get("level", "beginner")
 
