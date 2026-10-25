@@ -7,6 +7,7 @@ from em_ai import (
 from em_content import LEVELS, load_grammar, load_vocab, words_for
 from em_db import current_level, current_student, get_stats, q_all, word_status_map
 from em_grammar_page import page_grammar
+from em_hero import show_hero
 from em_quiz_page import page_quiz
 from em_style import card, esc, inject_css
 from em_vocab_page import page_vocab
@@ -285,11 +286,7 @@ def data_warnings():
 def main():
     inject_css()
     init_profile()
-    st.markdown(
-        '<div class="hero"><h1>📘 EnglishMate AI</h1>'
-        "<p>یادگیری انگلیسی، آسان‌تر از همیشه</p></div>",
-        unsafe_allow_html=True,
-    )
+    show_hero()
     profile_row()
     navigation()
     data_warnings()
